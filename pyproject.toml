@@ -1,0 +1,22 @@
+[project]
+name = "research_and_blog_crew"
+version = "0.1.0"
+description = "research_and_blog_crew using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[google-genai,litellm,tools]>=1.15.12,<2.0.0",
+    "litellm>=1.95.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["agents", "crew.jsonc", "tools", "knowledge", "skills"]
+
+[tool.crewai]
+type = "crew"
+definition = "crew.jsonc"
+project_id = "c51accaf-2ae4-4310-ac21-aceaa218ef60"
